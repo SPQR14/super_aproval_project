@@ -1,6 +1,4 @@
-import pandas as pd
-import numpy as np
-
+ 
 def OUTLIERS(df,cols):
     results=pd.DataFrame()
     data_iqr=df.copy()
@@ -81,6 +79,7 @@ def OUTLIERS(df,cols):
        'n_outliers_Mean_Change_%',  'total_outliers', '%_outliers','indices']]
     return results
 
+
 def aux_outliers(a,b,c):
     a=set(a)
     b=set(b)
@@ -94,4 +93,3 @@ def aux_outliers(a,b,c):
 
     outliers_index=list(set(list(a_)+list(b_)+list(c_)))
     return outliers_index
-    

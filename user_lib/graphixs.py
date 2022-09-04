@@ -1,19 +1,10 @@
-import plotly
-import plotly.graph_objects as go
-import plotly.express as px
-import cufflinks as cf
-import stylecloud
-from PIL import Image
-from plotly.offline import plot,iplot
-import pandas as pd
-pd.options.plotting.backend = "plotly"
-cf.go_offline()
+
 
 def histogram(df,col,bins,title):
     layout = go.Layout(font_family="Courier New, monospace",
     font_color="black",title_text=title,title_font_size=30,xaxis= {"title": {"font": {"family": 'Courier New, monospace',"size": 18,
         "color": '#002e4d'}}},title_font_family="Courier New, monospace",title_font_color="#004878",template="plotly_white")
-    fig=df[[col]].iplot(kind='histogram', x=col, bins=bins, title=title, asFigure=True,theme="white", layout=layout, color="#003e6c")
+    fig=df[[col]].iplot(kind='histogram',x=col,bins=bins,title=title,asFigure=True,theme="white",layout=layout,color="#003e6c")
     fig.update_traces(opacity=0.90)
     return fig
 
@@ -48,4 +39,3 @@ def box(df,col,title):
         "color": '#002e4d'}}},title_font_family="Courier New, monospace",title_font_color="#004878",template="plotly_white")
     fig=df[[col]].iplot(kind='box',title=title,asFigure=True,theme="white",layout=layout,color="#005a96", boxpoints='outliers')
     return fig
-#%%
