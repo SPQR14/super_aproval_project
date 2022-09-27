@@ -1,4 +1,3 @@
-from ast import main
 import librosa
 import os
 import numpy as np
@@ -60,18 +59,10 @@ for g in tag:
             x += f' {np.mean(m)}'
         
         x += f' {BPM} {auto_c} {g} '
-        #x += f' {BPM} {auto_c} {g}'
 
         d = dict(zip(columnas, x.split()))
         df = df.append(d, ignore_index = True)
         print(u'Añadido el registro de: ' + nombre)
         
-        """
-        librosa.display.specshow(amplitude, sr = sr, x_axis='time', y_asxis='log')
-        plt.title(nombre)
-        plt.savefig(plot_path + g + '/' + nombre + '.png')
-        plt.clf()
-        """
-
 df.to_csv('datos_musica_new.csv', sep = ',', encoding = 'utf8')
 print(time.process_time() - start)
